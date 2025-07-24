@@ -1,0 +1,62 @@
+{
+  "info": {
+    "_postman_id": "1a2b3c4d-5e6f-7g8h-9i0j-kpaapi123456",
+    "name": "KPA Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Submit Wheel Specification",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"formNumber\": \"WHEEL-2025-001\",\n  \"submittedBy\": \"user_id_123\",\n  \"submittedDate\": \"2025-07-03\",\n  \"fields\": {\n    \"treadDiameterNew\": \"915 (900-1000)\",\n    \"wheelGauge\": \"1600 (+2,-1)\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/forms/wheel-specifications",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "forms", "wheel-specifications"]
+        }
+      }
+    },
+    {
+      "name": "Get Wheel Specification Records",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/forms/wheel-specifications?formNumber=WHEEL-2025-001",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "forms", "wheel-specifications"],
+          "query": [
+            { "key": "formNumber", "value": "WHEEL-2025-001" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Submit Bogie Checksheet",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"formNumber\": \"BOGIE-2025-001\",\n  \"inspectionBy\": \"user_id_456\",\n  \"inspectionDate\": \"2025-07-03\",\n  \"bogieDetails\": {\n    \"bogieNo\": \"BG1234\",\n    \"makerYearBuilt\": \"RDSO/2018\"\n  },\n  \"bogieChecksheet\": {\n    \"bolster\": \"Good\",\n    \"lowerSpringSeat\": \"Good\"\n  },\n  \"bmbcChecksheet\": {\n    \"cylinderBody\": \"WORN OUT\",\n    \"plungerSpring\": \"GOOD\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/forms/bogie-checksheet",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "forms", "bogie-checksheet"]
+        }
+      }
+    }
+  ]
+}
